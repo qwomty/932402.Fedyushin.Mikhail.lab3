@@ -1,4 +1,3 @@
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -55,10 +54,11 @@ input, textarea {
   border-radius: 4px;
   background-color: #f1f5f9;
   color: #0f172a;
-  outline: none;
 }
 
 input:focus, textarea:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
   border-color: var(--accent-color);
   box-shadow: 0 0 5px var(--accent-color);
 }
@@ -182,7 +182,10 @@ button:active {
 }
 
 .release-card {
-  width: calc((100% - 60px) / 4);
+  flex: 0 0 calc((100% - 60px) / 4);
+  max-width: calc((100% - 60px) / 4);
+  min-width: 0; 
+  overflow-wrap: break-word; 
   background-color: var(--secondary-bg);
   padding: 15px;
   border-radius: 8px;
@@ -214,13 +217,12 @@ button:active {
 .release-card img { aspect-ratio: 1 / 1; }
 .equipment-card img { aspect-ratio: 16 / 9; }
 
-
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .release-card {
-    width: calc((100% - 20px) / 2);
+    flex: 0 0 calc((100% - 20px) / 2);
+    max-width: calc((100% - 20px) / 2);
   }
   
- 
   .equipment-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -237,7 +239,8 @@ button:active {
   }
 
   .release-card {
-    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
   
   .equipment-grid {
